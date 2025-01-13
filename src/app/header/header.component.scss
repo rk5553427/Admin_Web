@@ -1,0 +1,17 @@
+.app-header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+  }
+  
+  nav a {
+    color: white;
+    margin-right: 1rem;
+    text-decoration: none;
+  }
+  
+  nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
