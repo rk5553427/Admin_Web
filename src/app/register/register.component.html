@@ -1,0 +1,108 @@
+<div class="container mt-2">
+    <h2 class="text-center mb-4">Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="action()" class="needs-validation">
+  
+      <!-- First Name Field -->
+      <div class="form-group mb-3">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          placeholder="Enter First Name"
+          class="form-control"
+        />
+        <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="text-danger">
+          First Name is required.
+        </div>
+      </div>
+  
+      <!-- Last Name Field -->
+      <div class="form-group mb-3">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          formControlName="lastName"
+          placeholder="Enter Last Name"
+          class="form-control"
+        />
+        <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="text-danger">
+          Last Name is required.
+        </div>
+      </div>
+  
+      <!-- Phone Number Field -->
+      <div class="form-group mb-3">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          placeholder="Enter Phone Number"
+          mask="(000) 000-0000"
+          class="form-control"
+        />
+        <div *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched" class="text-danger">
+          Phone Number is required and must be at least 10 digits.
+        </div>
+      </div>
+  
+      <!-- Email Field -->
+      <div class="form-group mb-4">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter Email"
+          class="form-control"
+        />
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+          A valid Email is required.
+        </div>
+      </div>
+  
+      <!-- Password Field -->
+      <div class="form-group mb-4">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter Password"
+          class="form-control"
+        />
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+          Password is required.
+        </div>
+      </div>
+  
+      <!-- Re-Enter Password Field -->
+      <div class="form-group mb-4">
+        <label for="repassword">Re-Enter Password</label>
+        <input
+          type="password"
+          (focusout) = "matchPassword()"
+          formControlName="repassword"
+          placeholder="Re-Enter Password"
+          class="form-control"
+        />
+        <div *ngIf="registerForm.get('repassword')?.invalid && registerForm.get('repassword')?.touched" class="text-danger">
+          Re-Password is required.
+        </div>
+        <div class="text-danger">
+          {{password}}
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        [disabled]="registerForm.invalid"
+        class="btn btn-primary w-100"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+  

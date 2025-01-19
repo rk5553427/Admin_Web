@@ -11,7 +11,7 @@ export class AppComponent {
   topHeader:boolean = false;
   constructor(private router: Router) {
     this.router.events.subscribe(()=>{
-      this.topHeader = this.router.url !== "/login";
+      this.topHeader = this.router.url !== "/login" && this.router.url !== "/register";
     })
   }
   goToHome() {
