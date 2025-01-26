@@ -1,0 +1,50 @@
+label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff; /* Blue color for the label */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: block;
+    text-align: center; /* Center the label text */
+}
+
+
+/* Style for the container div (previously ul) */
+.bus-list {
+    display: flex; /* Align items horizontally */
+    gap: 10px; /* Space between items */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    height: 8vh; /* Full viewport height */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+    margin: 0; /* Remove default margin */
+}
+
+/* Style for each item div (previously li) */
+.bus-item {
+    padding: 10px 15px; /* Adjust padding for smaller items */
+    font-size: 16px; /* Smaller font size */
+    color: #555; /* Darker text color */
+    background-color: #f4f4f4; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for items */
+.bus-item:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Active state when clicking an item */
+.bus-item:active {
+    background-color: #0056b3; /* Darker blue when active */
+}
+
+/* Optional: style for the selected or focused item */
+.bus-item:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Blue glow for focus */
+}

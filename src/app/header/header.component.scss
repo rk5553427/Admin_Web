@@ -1,17 +1,114 @@
-.app-header {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
-  }
-  
-  nav a {
-    color: white;
-    margin-right: 1rem;
-    text-decoration: none;
-  }
-  
-  nav a.active {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+header {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 10px;
+  font-weight: bold;
+}
+.container {
+  padding: 20px;
+}
+.main-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.search-section input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search-section button {
+  padding: 10px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search-section button:hover {
+  background-color: #e55b00;
+}
+.ads {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+.ads img {
+  border-radius: 8px;
+  width: 100%;
+}
+.govt-buses {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.govt-buses img {
+  width: 100px;
+  height: auto;
+}
+/* Style for the LogOut button */
+button {
+  background-color: #e95342; /* Red background color */
+  color: white; /* White text color */
+  font-size: 10px; /* Font size */
+  padding: 10px 20px; /* Padding around the button */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change the cursor to a pointer when hovered */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #ff0000; /* Darker red when hovered */
+  transform: scale(1.05); /* Slightly increase the button size */
+}
+
+/* Focus effect */
+button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red glow when focused */
+}
+a {
+  color: #000; /* Black color for the link */
+  text-decoration: none; /* Remove underline */
+  padding: 5px 10px; /* Add padding */
+  margin-right: 15px; /* Add spacing between links */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth background and color transition */
+}
+
+/* Style when the link is active */
+a.active {
+  color: #fff; /* White text color when active */
+  background-color: #7fb8f5; /* Blue background when active */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Add hover effect for better user experience */
+a:hover {
+  background-color: #0056b3; /* Darker blue when hovered */
+  color: #fff; /* White text color on hover */
+}
+
+

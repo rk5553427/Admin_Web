@@ -8,34 +8,24 @@ import { AuthService } from '../auth.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+  responseMessage:any;
   constructor(private router: Router, private authService: AuthService) {}
   loginData = {
-    email: '',
+    username: '',
     password: '',
   };
 
-  // login() {
-  //   if (this.loginData.email && this.loginData.password) {
-  //     this.router.navigate(['/first-page']);
-  //   }
-
-  //  this.authService.Register(this.loginData).subscribe({
-  //   next(res) {
-  //     if(res.Success){
-  //       this.router.navigate(['/first-page']);
-  //     }
-  //   },error(err) {
-  //     alert(err);
-  //   },
-  //  })
-  // }
   login() {
-    if (this.loginData.email != null && this.loginData.password != null) {
+    this.responseMessage="";
+    if (this.loginData.username != null && this.loginData.password != null) {
       this.authService.Login(this.loginData).subscribe({
         next: (res: any) => {
           // Using arrow function to maintain correct 'this'
-          if (res.Success) {
-            this.router.navigate(['/first-page']);
+          if (res.success) {
+            localStorage.setItem("loginData", JSON.stringify(res.data))
+            this.router.navigate(['/deshboard']);
+          }else{
+            this.responseMessage = "UserName or Password is wrong.";
           }
         },
         error: (err: any) => {

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FirstPageComponent } from './first-page.component';
+import { BusDetailComponent } from './bus-detail.component';
 
-describe('FirstPageComponent', () => {
-  let component: FirstPageComponent;
-  let fixture: ComponentFixture<FirstPageComponent>;
+describe('BusDetailComponent', () => {
+  let component: BusDetailComponent;
+  let fixture: ComponentFixture<BusDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FirstPageComponent]
+      declarations: [BusDetailComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FirstPageComponent);
+    fixture = TestBed.createComponent(BusDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

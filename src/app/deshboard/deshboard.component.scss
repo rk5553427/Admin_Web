@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    padding: 20px;
+}
+.main-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.search-section input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.search-section button {
+    padding: 10px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.search-section button:hover {
+    background-color: #e55b00;
+}
+.ads {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.ads img {
+    border-radius: 8px;
+    width: 100%;
+}
+.govt-buses {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.govt-buses img {
+    width: 100px;
+    height: auto;
+}
