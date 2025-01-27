@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskConfig, NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { DeshboardComponent } from './deshboard/deshboard.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const maskConfig: Partial<NgxMaskConfig> = {
   validation: false,
@@ -29,7 +30,7 @@ const maskConfig: Partial<NgxMaskConfig> = {
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskDirective, 
-    NgxMaskPipe
+    NgxMaskPipe, NgbModule
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]
