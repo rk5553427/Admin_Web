@@ -1,7 +1,42 @@
 <label>Bus Detail Tab</label>
 <div class="bus-list">
-    <div class="bus-item">Bus Driver List</div>
-    <div class="bus-item">Bus List</div>
-    <div class="bus-item">Bus Route List</div>
-    <div class="bus-item">Bus Detail List</div>
+    <div class="bus-item" 
+    (click)="tabClick('Bus Driver')" 
+    [ngClass]="{'active': selectedTab === 'Bus Driver'}">
+   Bus Driver List
+</div>
+<div class="bus-item" 
+    (click)="tabClick('Bus List')" 
+    [ngClass]="{'active': selectedTab === 'Bus List'}">
+    Bus List
+</div>
+<div class="bus-item" 
+    (click)="tabClick('Bus Route')" 
+    [ngClass]="{'active': selectedTab === 'Bus Route'}">
+    Bus Route
+</div>
+<div class="bus-item" 
+    (click)="tabClick('Bus Detail')" 
+    [ngClass]="{'active': selectedTab === 'Bus Detail'}">
+    Bus Detail List
+</div> 
+</div>
+
+<div *ngIf="selectedTab === 'Bus Driver'" class="container">
+    {{selectedTab}} 
+    <div style="text-align: right;">
+        <button class="btn btn-success" (click)="openModal()">ADD</button> 
+    </div>    
+</div>
+
+<div *ngIf="selectedTab === 'Bus List'" class="container">
+    {{selectedTab}}
+</div>
+
+<div *ngIf="selectedTab === 'Bus Route'" class="container">
+    {{selectedTab}} 
+</div>
+
+<div *ngIf="selectedTab === 'Bus Detail'" class="container">
+    {{selectedTab}}
 </div>

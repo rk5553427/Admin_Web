@@ -9,18 +9,23 @@ import { BusDriverComponent } from '../bus-driver/bus-driver.component';
   styleUrl: './bus-detail.component.scss'
 })
 export class BusDetailComponent {
-
+  selectedTab: string = 'Bus Driver';
   constructor(
     private matDialog: MatDialog,
   ) { }
 
+  tabClick(tab:string){
+    this.selectedTab = tab;
+  }
 
   openModal() {
-    this.matDialog.open(BusDriverComponent, {
-      width: '6000px',
+    const dialogRef = this.matDialog.open(BusDriverComponent, {
+      width: '600px',
       maxHeight: '90vh',
       data: "John",
       autoFocus: false
     });
+    dialogRef.afterClosed().subscribe(result => {
+    })
   }
 }

@@ -10,6 +10,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    BusDetailComponent,
     BusDriverComponent,
     
   ],

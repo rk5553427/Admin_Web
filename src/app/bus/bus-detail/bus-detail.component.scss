@@ -48,3 +48,12 @@ label {
     outline: none; /* Remove default focus outline */
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Blue glow for focus */
 }
+
+.btn:hover {
+    background-color: darkgreen; /* Change to a darker green on hover */
+}
+
+.active {
+    background-color: #007bff !important;
+    color: white !important;
+}
