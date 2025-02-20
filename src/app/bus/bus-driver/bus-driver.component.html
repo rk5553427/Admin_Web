@@ -1,12 +1,120 @@
-<div class="header" style="text-align: right; padding-right: 20px; padding-bottom: 5px; cursor: pointer;">
-    <label (click)="close()">X</label>
-</div>
+<!-- <div class="header" style="text-align: right; padding-right: 20px; padding-bottom: 5px; cursor: pointer;"> -->
+  <div class="header" style="display: flex; justify-content: space-between; align-items: center; padding: 5px 20px;">
+    <label style="cursor: pointer; order: 1; font-weight: bold;">Driver Registration Form</label>
+    <label style="cursor: pointer; order: 2;" (click)="close()">X</label>
+  </div>
+  
+
 
 <div class="container">
-asdfs
-</div>
+    <form [formGroup]="form" >  
+      <div class="row">
+        <!-- Driver ID -->
+        <div class="col-md-6 mb-3">
+          <label for="driverId" class="form-label">Driver ID:</label>
+          <input id="driverId" type="number" class="form-control" formControlName="driverId" />
+          <div *ngIf="form.get('driverId')?.invalid && form.get('driverId')?.touched" class="text-danger small">
+            Driver ID is required.
+          </div>
+        </div>
+  
+        <!-- Name -->
+        <div class="col-md-6 mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input id="name" type="text" class="form-control" formControlName="name" required minlength="3" />
+          <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched" class="text-danger small">
+            <span *ngIf="form.get('name')?.hasError('required')">Name is required.</span>
+            <span *ngIf="form.get('name')?.hasError('minlength')">Minimum 3 characters required.</span>
+          </div>
+        </div>
+  
+        <!-- Father's Name -->
+        <div class="col-md-6 mb-3">
+          <label for="fatherName" class="form-label">Father's Name:</label>
+          <input id="fatherName" type="text" class="form-control" formControlName="fatherName" required minlength="3" />
+          <div *ngIf="form.get('fatherName')?.invalid && form.get('fatherName')?.touched" class="text-danger small">
+            <span *ngIf="form.get('fatherName')?.hasError('required')">Father's Name is required.</span>
+            <span *ngIf="form.get('fatherName')?.hasError('minlength')">Minimum 3 characters required.</span>
+          </div>
+        </div>
+  
+        <!-- Mother's Name -->
+        <div class="col-md-6 mb-3">
+          <label for="motherName" class="form-label">Mother's Name:</label>
+          <input id="motherName" type="text" class="form-control" formControlName="motherName" required minlength="3" />
+          <div *ngIf="form.get('motherName')?.invalid && form.get('motherName')?.touched" class="text-danger small">
+            <span *ngIf="form.get('motherName')?.hasError('required')">Mother's Name is required.</span>
+            <span *ngIf="form.get('motherName')?.hasError('minlength')">Minimum 3 characters required.</span>
+          </div>
+        </div>
+  
+        <!-- Phone Number -->
+        <div class="col-md-6 mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number:</label>
+          <input id="phoneNumber" type="tel" class="form-control" formControlName="phoneNumber" required pattern="^[0-9]{10}$" />
+          <div *ngIf="form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.touched" class="text-danger small">
+            <span *ngIf="form.get('phoneNumber')?.hasError('pattern')">Enter a valid 10-digit phone number.</span>
+          </div>
+        </div>
+  
+        <!-- Email -->
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input id="email" type="email" class="form-control" formControlName="email" required />
+          <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger small">
+            <span *ngIf="form.get('email')?.hasError('email')">Invalid email format.</span>
+          </div>
+        </div>
+  
+        <!-- Address Details -->
+        <div class="col-md-4 mb-3">
+          <label for="city" class="form-label">City:</label>
+          <input id="city" type="text" class="form-control" formControlName="city" required />
+        </div>
+  
+        <div class="col-md-4 mb-3">
+          <label for="district" class="form-label">District:</label>
+          <input id="district" type="text" class="form-control" formControlName="district" required />
+        </div>
+  
+        <div class="col-md-4 mb-3">
+          <label for="state" class="form-label">State:</label>
+          <input id="state" type="text" class="form-control" formControlName="state" required />
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="country" class="form-label">Country:</label>
+          <input id="country" type="text" class="form-control" formControlName="country" required />
+        </div>
+  
+        <div class="col-md-6 mb-3">
+          <label for="pinCode" class="form-label">Pin Code:</label>
+          <input id="pinCode" type="text" class="form-control" formControlName="pinCode"  mask="(000) 000-0000"   />
+          <div *ngIf="form.get('pinCode')?.invalid && form.get('pinCode')?.touched" class="text-danger small">
+            Pin Code must be 6 digits.
+          </div>
+        </div>
+  
+        <!-- Type & Active Status -->
+        <div class="col-md-6 mb-3">
+          <label for="type" class="form-label">Type:</label>
+          <input id="type" type="text" class="form-control" formControlName="type" required />
+        </div>
+  
+        <div class="col-md-6 mb-3 d-flex align-items-center">
+          <label for="active" class="form-label me-2 Active">Active:</label>
+          <input id="active" type="checkbox" formControlName="active" class="form-check-input" />
+        </div>
+      </div>
+  
+      <!-- <div class="text-center">
+        <button type="submit" class="btn btn-primary px-4" [disabled]="form.invalid">Submit</button>
+      </div> -->
+    </form>
+  </div>
+
 
 <div class="footer">
-    <button class="btn" style="margin-right: 20px; margin-bottom: 20px;" (click)="close()">Save</button>
+    <button class="btn" style="margin-right: 20px; margin-bottom: 20px;" (click)="action()">Save</button>
     <button class="btn" style="margin-right: 20px; margin-bottom: 20px;" (click)="close()">Close</button>
 </div>
