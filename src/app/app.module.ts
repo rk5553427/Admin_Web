@@ -11,6 +11,7 @@ import { NgxMaskConfig, NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ng
 import { DeshboardComponent } from './deshboard/deshboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { AgGridModule } from 'ag-grid-angular';
 
 const maskConfig: Partial<NgxMaskConfig> = {
   validation: false,
@@ -31,7 +32,8 @@ const maskConfig: Partial<NgxMaskConfig> = {
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskDirective, 
-    NgxMaskPipe, NgbModule
+    NgxMaskPipe, NgbModule,
+    AgGridModule,
   ],
  providers: [
   provideNgxMask(),

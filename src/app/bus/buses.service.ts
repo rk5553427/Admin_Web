@@ -15,7 +15,10 @@ export class BusesService {
       this.busesrUrl = `${this.Url}/api/Bus`;
      }
 
-     CreateUpdateDriver(payload:any): Observable<any>{
+    CreateUpdateDriver(payload:any): Observable<any>{
       return this.httpClient.post(`${this.busesrUrl}/CreateUpdateDriver`, payload)
+    }
+    GetAllDriver(): Observable<any>{
+      return this.httpClient.get(`${this.busesrUrl}/CreateUpdateDriver`)
     }
 }
