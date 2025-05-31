@@ -6,10 +6,11 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxMaskConfig, NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { DeshboardComponent } from './deshboard/deshboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 const maskConfig: Partial<NgxMaskConfig> = {
   validation: false,
@@ -32,7 +33,14 @@ const maskConfig: Partial<NgxMaskConfig> = {
     NgxMaskDirective, 
     NgxMaskPipe, NgbModule
   ],
-  providers: [provideNgxMask()],
+ providers: [
+  provideNgxMask(),
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,  
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

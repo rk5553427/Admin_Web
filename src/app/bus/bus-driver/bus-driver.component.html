@@ -10,13 +10,13 @@
     <form [formGroup]="form" >  
       <div class="row">
         <!-- Driver ID -->
-        <div class="col-md-6 mb-3">
+        <!-- <div class="col-md-6 mb-3">
           <label for="driverId" class="form-label">Driver ID:</label>
           <input id="driverId" type="number" class="form-control" formControlName="driverId" />
           <div *ngIf="form.get('driverId')?.invalid && form.get('driverId')?.touched" class="text-danger small">
             Driver ID is required.
           </div>
-        </div>
+        </div> -->
   
         <!-- Name -->
         <div class="col-md-6 mb-3">
@@ -67,17 +67,17 @@
         </div>
   
         <!-- Address Details -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-6 mb-3">
           <label for="city" class="form-label">City:</label>
           <input id="city" type="text" class="form-control" formControlName="city" required />
         </div>
   
-        <div class="col-md-4 mb-3">
+        <div class="col-md-6 mb-3">
           <label for="district" class="form-label">District:</label>
           <input id="district" type="text" class="form-control" formControlName="district" required />
         </div>
   
-        <div class="col-md-4 mb-3">
+        <div class="col-md-6 mb-3">
           <label for="state" class="form-label">State:</label>
           <input id="state" type="text" class="form-control" formControlName="state" required />
         </div>

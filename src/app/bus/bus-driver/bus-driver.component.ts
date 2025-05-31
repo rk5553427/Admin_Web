@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { BusesService } from '../buses.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-bus-driver',
@@ -14,15 +16,18 @@ export class BusDriverComponent implements OnInit {
     public dialogRef: MatDialogRef<BusDriverComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private busesService: BusesService,
+    
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formBuild();
+  }
 
   private formBuild() {
     this.form = this.fb.group({
       id: [this.data.id ? this.data.id : 0],
-      driverId: [this.data.driverId ? this.data.driverId : 0, Validators.required],
       name: [this.data.name ? this.data.name : ''],
       fatherName: [this.data.fatherName ? this.data.fatherName : ''],
       motherName: [this.data.motherName ? this.data.motherName : ''],
@@ -42,7 +47,41 @@ export class BusDriverComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  action(){
-    
+  action(){er
+    if(this.form){
+      const payload ={
+        ...this.form.value
+      }
+
+      this.busesService.CreateUpdateDriver(payload).subscribe({
+              next: (res: any) => {er
+                // Use arrow function here to preserve 'this' context
+                Swal.fire({
+                  icon: 'success',
+                  title: res.message,
+                  background: '#f0f8ff', // Custom background color
+                  color: '#004d00', // Custom text color
+                  confirmButtonColor: '#007bff', // Custom button color
+                  confirmButtonText: 'Continue', // Custom button text
+                  customClass: {
+                    popup: 'custom-popup', // Custom class for popup (optional)
+                    confirmButton: 'custom-confirm-button',
+                    cancelButton: 'custom-cancel-button',
+                  },
+                })
+                 this.close()
+              },
+              error: (err) => {
+                Swal.fire({
+                  icon: 'success',
+                  title: err,
+                  background: '#f0f8ff', // Custom background color
+                  color: '#004d00', // Custom text color
+                  confirmButtonColor: '#007bff', // Custom button color
+                  confirmButtonText: 'Continue', // Custom button text
+                })
+              },
+            });
+    }
   }
 }
