@@ -47,14 +47,14 @@ export class BusDriverComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  action(){er
+  action(){
     if(this.form){
       const payload ={
         ...this.form.value
       }
 
       this.busesService.CreateUpdateDriver(payload).subscribe({
-              next: (res: any) => {er
+              next: (res: any) => {
                 // Use arrow function here to preserve 'this' context
                 Swal.fire({
                   icon: 'success',
