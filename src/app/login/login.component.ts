@@ -19,7 +19,7 @@ export class LoginComponent {
     this.responseMessage="";
     if (this.loginData.username != null && this.loginData.password != null) {
       this.authService.Login(this.loginData).subscribe({
-        next: (res: any) => {er
+        next: (res: any) => {
           // Using arrow function to maintain correct 'this'
           if (res.success) {
             localStorage.setItem("loginData", JSON.stringify(res.data))
