@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BusDetailComponent } from './bus-detail/bus-detail.component';
@@ -7,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskConfig, NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgGridModule } from 'ag-grid-angular';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 const routes: Routes = [
   { path: 'bus', component: BusDetailComponent },
@@ -33,5 +33,6 @@ const routes: Routes = [
   ],
   // providers: [provideNgxMask()],
   exports: [RouterModule],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class BusModule {}

@@ -12,6 +12,7 @@ import { DeshboardComponent } from './deshboard/deshboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AgGridModule } from 'ag-grid-angular';
+import { ActionCellRendererComponent } from './action-cell-renderer/action-cell-renderer.component';
 
 const maskConfig: Partial<NgxMaskConfig> = {
   validation: false,
@@ -24,6 +25,7 @@ const maskConfig: Partial<NgxMaskConfig> = {
     RegisterComponent,
     HeaderComponent,
     DeshboardComponent,
+    ActionCellRendererComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ const maskConfig: Partial<NgxMaskConfig> = {
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskDirective, 
-    NgxMaskPipe, NgbModule,
+    NgxMaskPipe, NgbModule,    
     AgGridModule,
   ],
  providers: [

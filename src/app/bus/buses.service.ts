@@ -19,6 +19,6 @@ export class BusesService {
       return this.httpClient.post(`${this.busesrUrl}/CreateUpdateDriver`, payload)
     }
     GetAllDriver(): Observable<any>{
-      return this.httpClient.get(`${this.busesrUrl}/CreateUpdateDriver`)
+      return this.httpClient.get(`${this.busesrUrl}/GetAllDriver`)
     }
 }

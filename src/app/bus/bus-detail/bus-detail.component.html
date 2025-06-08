@@ -28,16 +28,19 @@
         <button class="btn btn-success" (click)="openModal()">ADD</button> 
     </div>    
 
-<ag-grid-angular 
-  style="width: 100%; height: 500px;" 
+
+<ag-grid-angular
   class="ag-theme-alpine"
+  style="width: 100%; height: 600px;"
   [rowData]="rowData"
   [columnDefs]="columnDefs"
-  [pagination]="true"
-  [paginationPageSize]="10"
-  >
+  [defaultColDef]="{ sortable: true, filter: true, resizable: true }"
+  [frameworkComponents]="frameworkComponents"
+  [gridOptions]="gridOptions"
+  rowSelection="single"
+  [animateRows]="true">
 </ag-grid-angular>
-
+    
 
 </div>
 
