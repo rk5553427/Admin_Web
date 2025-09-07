@@ -65,14 +65,17 @@ export class BusDetailComponent implements OnInit {
   }
 
   openPopUp(data?: any) {
-    const dialogRef = this.matDialog.open(BusDriverComponent, {
-      width: '600px',
-      maxHeight: '90vh',
-      data: data,
-      autoFocus: false,
-    });
-    dialogRef.afterClosed().subscribe((result) => {});
-  }
+  const dialogRef = this.matDialog.open(BusDriverComponent, {
+    width: '600px',
+    maxHeight: '90vh',
+    data: data,
+    autoFocus: false,
+  });
+
+  dialogRef.afterClosed().subscribe(() => {
+    this.getAllDriver();
+  });
+}
 }
 
 
