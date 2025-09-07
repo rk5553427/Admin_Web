@@ -1,12 +1,11 @@
+
 import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 
 @Component({
   selector: 'app-action-cell-renderer',
-  template: `
-    <button (click)="edit()" class="btn btn-sm btn-primary">Edit</button>
-    <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button>
-  `
+  templateUrl: './action-cell-renderer.component.html',
+  styleUrls: ['./action-cell-renderer.component.scss']
 })
 export class ActionCellRendererComponent implements ICellRendererAngularComp {
   params: any;
@@ -19,11 +18,16 @@ export class ActionCellRendererComponent implements ICellRendererAngularComp {
     return false;
   }
 
-  edit() {
-    this.params.context.componentParent.onEditRow(this.params.data);
+ edit() {
+  if (this.params.action) {
+    this.params.action(this.params.data); 
   }
+}
 
-  delete() {
-    this.params.context.componentParent.onDeleteRow(this.params.data);
+ delete() {
+  if (this.params.delete) {
+    this.params.delete(this.params.data); 
   }
+}
+
 }

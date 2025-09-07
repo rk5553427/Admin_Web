@@ -24,14 +24,6 @@ export class GridColumnDefsService {
     { field: 'active', headerName: 'Active', sortable: true, filter: true },
     { field: 'registerDate', headerName: 'Register Date', sortable: true, filter: true },
     { field: 'updatedDate', headerName: 'Updated Date', sortable: true, filter: true },
-    {
-      headerName: 'Actions',
-      cellRenderer: 'actionCellRenderer',
-      sortable: false,
-      filter: false,
-      width: 150,
-      suppressMenu: true
-    }
   ];
 
 }

@@ -27,21 +27,13 @@ export class BusDetailComponent implements OnInit {
     private matDialog: MatDialog,
     private busesService: BusesService,
     private columnDef: GridColumnDefsService
-  ) {
-  this.frameworkComponents = {
-      actionCellRenderer: ActionCellRendererComponent
-    };
-     this.gridOptions = {
-      context: {
-        componentParent: this // important for event callbacks
-      }
-    };
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.columnDefs = this.columnDef.driverDetialsColumnDefs;
-    this.getAllDriver();
+  this.getGrid();
   }
+
+
 
   tabClick(tab: string) {
     this.selectedTab = tab;
@@ -58,13 +50,38 @@ export class BusDetailComponent implements OnInit {
     });
   }
 
-  openModal() {
+  getGrid(): void {
+    this.columnDefs = this.columnDef.driverDetialsColumnDefs;
+    this.columnDefs.push({
+      headerName: 'Actions',
+      cellRenderer: ActionCellRendererComponent,
+     cellRendererParams: {
+      action: this.openPopUp.bind(this),
+      delete: this.openPopUp.bind(this) 
+    },
+      width: 150
+    });
+    this.getAllDriver();
+  }
+
+  openPopUp(data?: any) {
     const dialogRef = this.matDialog.open(BusDriverComponent, {
       width: '600px',
       maxHeight: '90vh',
-      data: 'John',
+      data: data,
       autoFocus: false,
     });
     dialogRef.afterClosed().subscribe((result) => {});
   }
 }
+
+
+
+
+
+
+
+
+
+
+
