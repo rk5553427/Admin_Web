@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ColDef } from 'ag-grid-community';
+import Swal from 'sweetalert2';
 import { BusesService } from './../buses.service';
 import { BusDriverComponent } from '../bus-driver/bus-driver.component';
 import { GridColumnDefsService } from '../grid-column-defs.service';
@@ -57,7 +57,7 @@ export class BusDetailComponent implements OnInit {
       cellRenderer: ActionCellRendererComponent,
      cellRendererParams: {
       action: this.openPopUp.bind(this),
-      delete: this.openPopUp.bind(this) 
+      delete: this.deleteDriver.bind(this) 
     },
       width: 150
     });
@@ -76,9 +76,40 @@ export class BusDetailComponent implements OnInit {
     this.getAllDriver();
   });
 }
-}
 
+ deleteDriver(data:any): void {
+     this.busesService.DeleteDriver(data.id).subscribe({
+                  next: (res: any) => {
+                    Swal.fire({
+                      icon: 'success',
+                      title: res.message,
+                      background: '#f0f8ff',
+                      color: '#004d00',
+                      confirmButtonColor: '#007bff',
+                      confirmButtonText: 'Continue',
+                      customClass: {
+                        popup: 'custom-popup', 
+                        confirmButton: 'custom-confirm-button',
+                        cancelButton: 'custom-cancel-button',
+                      },
+                    })
+                    this.getAllDriver();
+                  },
+                  error: (err) => {
+                    Swal.fire({
+                      icon: 'success',
+                      title: err,
+                      background: '#f0f8ff',
+                      color: '#004d00',
+                      confirmButtonColor: '#007bff',
+                      confirmButtonText: 'Continue',
+                    })
+                  },
+                });
+        }
+  }
 
+  
 
 
 

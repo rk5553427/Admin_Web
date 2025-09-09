@@ -21,4 +21,7 @@ export class BusesService {
     GetAllDriver(): Observable<any>{
       return this.httpClient.get(`${this.busesrUrl}/GetAllDriver`)
     }
+    DeleteDriver(id: number): Observable<any> {
+     return this.httpClient.post(`${this.busesrUrl}/DeleteDriver?id=${id}`, {});
+    }
 }
